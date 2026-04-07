@@ -5,6 +5,9 @@ from assets.prompt import PLANNER_PROMPT_TEMPLATE, EXECUTOR_PROMPT_TEMPLATE
 
 # Planner implementation
 class Planner:
+    """
+    Planner that generates a step-by-step plan for solving a given question using an LLM, ensuring the output is a structured list of steps.
+    """
     def __init__(self, llm_client: LLMClient):
         self.llm_client = llm_client
     
@@ -34,6 +37,10 @@ class Planner:
 
 # Executor implementation
 class Executor:
+    """
+    Executor that takes a question and a plan (list of steps) and executes each step using an LLM to get intermediate results, 
+    ultimately producing the final answer.
+    """
     def __init__(self, llm_client: LLMClient):
         self.llm_client = llm_client
     
@@ -62,6 +69,10 @@ class Executor:
 
 # Plan-and-Solve Agent implementation that integrates the Planner and Executor to solve complex problems in a structured way
 class PlanAndSolveAgent:
+    """
+    Plan-and-Solve Agent that integrates the Planner and Executor to solve complex problems in a structured way, 
+    first generating a plan and then executing it to get the final answer.
+    """
     def __init__(self, llm_client: LLMClient):
         self.llm_client = llm_client
         self.planner = Planner(self.llm_client)

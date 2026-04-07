@@ -7,6 +7,10 @@ from assets.prompt import REACT_PROMPT_TEMPLATE
 
 # ReAct agent implementation
 class ReActAgent:
+    """
+    ReAct agent that interacts with an LLM and a set of tools to answer questions through iterative reasoning and tool usage, 
+    following the ReAct prompting paradigm where the agent generates thoughts and actions in a loop until it produces a final answer.
+    """
     def __init__(self, llm_client: LLMClient, tool_executor: ToolExecutor, max_steps: int = 5):
         self.llm_client = llm_client
         self.tool_executor = tool_executor

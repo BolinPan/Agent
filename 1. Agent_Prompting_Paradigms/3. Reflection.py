@@ -51,6 +51,10 @@ class Memory:
 
 # Reflection agent implementation 
 class ReflectionAgent:
+    """
+    Reflection Agent that interacts with an LLM to perform iterative reflection and refinement on generated code,
+    aiming to improve the code based on feedback until a satisfactory solution is produced or max iterations are reached.
+    """
     def __init__(self, llm_client, max_iterations=3):
         self.llm_client = llm_client
         self.memory = Memory()
